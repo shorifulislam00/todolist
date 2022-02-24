@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Todos :todos="todos" />
+    <Todos :todos="todos" @del-todo="deleteTodo" />
   </div>
 </template>
 
@@ -11,6 +11,12 @@ export default {
   name: 'App',
   components: {
     Todos
+  },
+  methods: {
+    deleteTodo (id) {
+      // console.log(id);
+      this.todos = this.todos.filter(todo => todo.id != id)
+    }
   },
   data (){
     return {

@@ -3,6 +3,8 @@
         <p>
             <input type="checkbox" @change="markComplete" :checked="todo.completed">
             {{ todo.title }}
+
+            <button @click="$emit('del-todo')" class="del">X</button>
         </p>
     </div>
 </template>
