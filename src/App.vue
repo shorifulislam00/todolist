@@ -1,21 +1,30 @@
 <template>
   <div id="app">
+    <Header />
+    <AddTodo @add-todo="addTodo" />
     <Todos :todos="todos" @del-todo="deleteTodo" />
   </div>
 </template>
 
 <script>
-import Todos from "./components/Todos.vue";
+import Header from "./components/layout/Header";
+import AddTodo from "./components/AddTodo";
+import Todos from "./components/Todos";
 
 export default {
   name: 'App',
   components: {
+    Header,
+    AddTodo,
     Todos
   },
   methods: {
     deleteTodo (id) {
       // console.log(id);
       this.todos = this.todos.filter(todo => todo.id != id)
+    },
+    addTodo(todo) {
+      this.todos = [...this.todos, todo];
     }
   },
   data (){
