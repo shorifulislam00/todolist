@@ -14,12 +14,7 @@ export default {
     components: {
         TodoItem
     },
-    props: {
-        todos: {
-            type: Array,
-            require: true
-        }
-    }
+    props: ['todos']
 }
 </script>
 

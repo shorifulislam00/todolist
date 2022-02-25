@@ -21,11 +21,14 @@ export default {
   },
   methods: {
     deleteTodo (id) {
-      // console.log(id);
+      axios.post("http://localhost/vuejs/traversy_media/todolist-api/todoList/deleteItem/"+id)
+      
       this.todos = this.todos.filter(todo => todo.id != id)
     },
     addTodo(todo) {
-      this.todos = [...this.todos, todo];
+      axios.post("http://localhost/vuejs/traversy_media/todolist-api/todoList/addItem", todo)
+        .then(res => this.todos = [...this.todos, res.data])
+        .catch(err => console.log(err));
     }
   },
   data (){
@@ -34,7 +37,7 @@ export default {
     }
   },
   created() {
-    axios.get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+    axios.get("http://localhost/vuejs/traversy_media/todolist-api/todoList/list")
         .then(res => this.todos = res.data)
         .catch(err => console.log(err));
   }
