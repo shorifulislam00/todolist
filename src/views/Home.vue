@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <Header />
     <AddTodo @add-todo="addTodo" />
     <Todos :todos="todos" @del-todo="deleteTodo" />
   </div>
 </template>
 
 <script>
-import Header from "../components/layout/Header";
+
 import AddTodo from "../components/AddTodo";
 import Todos from "../components/Todos";
 import axios from "axios";
@@ -15,7 +14,6 @@ import axios from "axios";
 export default {
   name: 'App',
   components: {
-    Header,
     AddTodo,
     Todos
   },
